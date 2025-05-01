@@ -2,12 +2,14 @@ import Image from "next/image";
 import EventCalendar from "./EventCalendar";
 import EventList from "./EventList";
 
-const EventCalendarContainer = async ({
-    searchParams,
-}: {
-    searchParams: { [keys: string]: string | undefined };
-}) => {
-    const { date } = searchParams;
+interface Props {
+    searchParams: { [key: string]: string | string[] | undefined };
+}
+
+const EventCalendarContainer = async ({ searchParams }: Props) => {
+    const rawDate = searchParams.date;
+    const date = Array.isArray(rawDate) ? rawDate[0] : rawDate;
+
     return (
         <div className="bg-white p-4 rounded-md">
             <EventCalendar />

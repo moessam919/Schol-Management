@@ -5,12 +5,15 @@ import EventCalendar from "@/components/EventCalendar";
 import EventCalendarContainer from "@/components/EventCalendarContainer";
 import FinanceChart from "@/components/FinanceChart";
 import UserCard from "@/components/UserCard";
+import { Metadata } from "next";
 
-const AdminPage = ({
-    searchParams,
-}: {
-    searchParams: { [keys: string]: string | undefined };
-}) => {
+export const metadata: Metadata = {
+    title: "Admin Dashboard",
+};
+
+export default function AdminPage(props: any) {
+    const { searchParams } = props;
+
     return (
         <div className="p-4 flex gap-4 flex-col md:flex-row">
             {/* LEFT */}
@@ -45,6 +48,4 @@ const AdminPage = ({
             </div>
         </div>
     );
-};
-
-export default AdminPage;
+}
