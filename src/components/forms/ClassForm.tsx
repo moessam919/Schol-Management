@@ -55,7 +55,6 @@ const ClassForm = ({
     );
 
     const onSubmit = handleSubmit((data) => {
-        console.log(data);
         startTransition(() => {
             formAction(data);
         });
